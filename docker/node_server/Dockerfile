@@ -14,7 +14,11 @@
 
 FROM grpcweb/common
 
-WORKDIR /github/grpc-web/net/grpc/gateway/examples/echo/node-server
+WORKDIR /var/www/server
+
+COPY src/protos/echo.proto .
+
+COPY src/server/ .
 
 RUN npm install
 
