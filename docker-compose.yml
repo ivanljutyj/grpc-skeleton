@@ -32,5 +32,3 @@ services:
     image: grpcweb/commonjs-client
     ports:
       - "8081:8081"
-    volumes:
-      - ./src/client:/var/www/html

@@ -14,13 +14,15 @@
 
 FROM grpcweb/common
 
-WORKDIR /var/www/protos
+WORKDIR /var/www/html
 
 COPY src/protos/*.proto .
 
 RUN protoc echo.proto --js_out=import_style=commonjs:. --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
 
-WORKDIR /var/www/html
+COPY src/client .
+
+RUN npm install && npx webpack
 
 EXPOSE 8081
 CMD ["python", "-m", "SimpleHTTPServer", "8081"]
