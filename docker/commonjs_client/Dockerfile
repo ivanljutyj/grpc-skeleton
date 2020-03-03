@@ -14,20 +14,17 @@
 
 FROM grpcweb/common
 
-WORKDIR /github/grpc-web/net/grpc/gateway/examples/echo
-
-RUN protoc -I=. echo.proto \
---js_out=import_style=commonjs:./commonjs-example \
---grpc-web_out=import_style=commonjs,mode=grpcwebtext:./commonjs-example
-
-WORKDIR /github/grpc-web/net/grpc/gateway/examples/echo/commonjs-example
-
-RUN npm install && \
-  npx webpack && \
-  cp echotest.html /var/www/html && \
-  cp dist/main.js /var/www/html/dist
+#WORKDIR /github/grpc-web/net/grpc/gateway/examples/echo
 
 WORKDIR /var/www/html
+
+RUN protoc echo.proto --js_out=import_style=commonjs:. --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
+
+#WORKDIR /github/grpc-web/net/grpc/gateway/examples/echo/commonjs-example
+#RUN npm install && \
+#  npx webpack && \
+#  cp echotest.html /var/www/html && \
+#  cp dist/main.js /var/www/html/dist
 
 EXPOSE 8081
 CMD ["python", "-m", "SimpleHTTPServer", "8081"]

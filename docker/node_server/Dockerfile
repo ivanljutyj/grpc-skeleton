@@ -14,7 +14,9 @@
 
 FROM grpcweb/common
 
-WORKDIR /github/grpc-web/net/grpc/gateway/examples/echo/node-server
+#WORKDIR /github/grpc-web/net/grpc/gateway/examples/echo/node-server
+
+WORKDIR /var/www/server
 
 RUN npm install
 

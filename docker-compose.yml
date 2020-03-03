@@ -14,6 +14,8 @@ services:
     image: grpcweb/node-server
     ports:
       - "9090:9090"
+    volumes:
+      - ./src/server:/var/www/server
   envoy:
     build:
       context: ./
@@ -32,3 +34,5 @@ services:
     image: grpcweb/commonjs-client
     ports:
       - "8081:8081"
+    volumes:
+      - ./src/client:/var/www/html
