@@ -16,7 +16,7 @@
  *
  */
 
-var PROTO_PATH = __dirname + '/../echo.proto';
+var PROTO_PATH = __dirname + '/echo.proto';
 
 var assert = require('assert');
 var async = require('async');
@@ -32,7 +32,7 @@ var packageDefinition = protoLoader.loadSync(
      oneofs: true
     });
 var protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
-var echo = protoDescriptor.grpc.gateway.testing;
+var echo = protoDescriptor.testing;
 
 /**
  * @param {!Object} call

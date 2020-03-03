@@ -17,8 +17,8 @@
  */
 
 const {EchoRequest,
-       ServerStreamingEchoRequest} = require('./echo_pb.js');
-const {EchoServiceClient} = require('./echo_grpc_web_pb.js');
+       ServerStreamingEchoRequest} = require('../protos/echo_pb.js');
+const {EchoServiceClient} = require('../protos/echo_grpc_web_pb.js');
 const {EchoApp} = require('./echoapp.js');
 const grpc = {};
 grpc.web = require('grpc-web');

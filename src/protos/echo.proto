@@ -14,7 +14,7 @@
 
 syntax = "proto3";
 
-package grpc.gateway.testing;
+package testing;
 
 message Empty {}
 
